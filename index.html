@@ -47,6 +47,37 @@
         </div>
     </div>
 
+    <!-- Settings Form Modal -->
+    <div id="settingsForm" class="modal">
+        <div class="modal-content">
+            <span class="close-settings">&times;</span>
+            <h2>Settings</h2>
+            <form>
+                <label><input type="radio" name="profile" value="Low-Latency Frame-Freezing"> Low-Latency Frame-Freezing</label><br>
+                <label><input type="radio" name="profile" value="High Bandwidth Profile"> High Bandwidth Profile</label><br>
+                <label><input type="radio" name="profile" value="Balanced Profile"> Balanced Profile</label><br>
+                <label><input type="radio" name="profile" value="Low Bandwidth Profile"> Low Bandwidth Profile</label>
+            </form>
+        </div>
+    </div>
+
+    <!-- Meeting Credentials Form Modal -->
+    <div id="meetingForm" class="modal">
+        <div class="modal-content">
+            <span class="close-meeting">&times;</span>
+            <h2>New Meeting</h2>
+            <form>
+                <label for="meetingName">Meeting Name:</label>
+                <input type="text" id="meetingName" name="meetingName" placeholder="Enter meeting name" required>
+                
+                <label for="meetingPassword">Meeting Password:</label>
+                <input type="password" id="meetingPassword" name="meetingPassword" placeholder="Enter password" required>
+                
+                <button type="submit" class="submit-meeting-btn">Create Meeting</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
