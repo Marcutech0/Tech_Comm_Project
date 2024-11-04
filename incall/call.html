@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Call Interface</title>
+    <link rel="stylesheet" href="call.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMeV7T27lNdu5F9QovI1z4As1mZVfQaFq6i5JgB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="zoom-interface">
+        <!-- Header positioned at the top -->
+        <div class="header">
+            <span class="title">zoom</span>
+            <span class="subtitle">Workplace</span>
+        </div>
+        
+        <!-- Video area displaying the user's image and username overlay -->
+        <div class="video-area">
+            <img src="image.png" alt="User" class="video-image" style="max-width: 100%; max-height: 100%; border-radius: 4px;">
+            <div class="username">Prince Lharrie Castillo</div>
+        </div>
+
+        <!-- Footer with button controls positioned at the bottom -->
+        <div class="footer">
+            <button class="footer-button"><i class="fas fa-microphone"></i> Join Audio</button>
+            <button class="footer-button"><i class="fas fa-video"></i> Start Video</button>
+            <button class="footer-button"><i class="fas fa-headphones"></i> Audio Mode</button> <!-- New Button -->
+            <button class="footer-button"><i class="fas fa-users"></i> Participants</button>
+            <button class="footer-button"><i class="fas fa-comments"></i> Chat</button>
+            <button class="footer-button"><i class="fas fa-smile"></i> Reactions</button>
+            <button class="footer-button"><i class="fas fa-share-square"></i> Share Screen</button>
+            <button class="footer-button"><i class="fas fa-shield-alt"></i> Security</button>
+            <button class="footer-button end"><i class="fas fa-sign-out-alt"></i> End</button>
+        </div>        
+    </div>
+
+    <script src="call.js"></script>
+</body>
+</html>

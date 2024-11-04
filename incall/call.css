@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.zoom-interface {
+    width: 100%; /* Full width to fill the screen */
+    height: 100vh; /* Full height to fill the screen */
+    background-color: #333;
+    border-radius: 0; /* Removed rounded corners */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #111;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header .title {
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+}
+
+.header .subtitle {
+    font-size: 14px;
+    color: #888;
+}
+
+.video-area {
+    flex-grow: 1;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.video-area .username {
+    position: absolute;
+    bottom: 20px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #111;
+    width: 100%; /* Full width */
+    gap: 10px;
+}
+
+.footer-button {
+    flex-grow: 1; /* Buttons stretch evenly */
+    padding: 12px; /* Increased padding for better click area */
+    color: #ddd;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.footer-button:hover {
+    background-color: #444;
+}
+
+.footer-button.end {
+    color: #fff;
+    background-color: #c82333;
+}
+
+.footer-button.end:hover {
+    background-color: #a71d2a;
+}
+
+.footer-button i {
+    margin-right: 5px;
+}
