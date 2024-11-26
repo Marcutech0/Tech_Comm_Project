@@ -64,3 +64,19 @@ newMeetingButton.onclick = function() {
 closeMeetingButton.onclick = function() {
     meetingForm.style.display = "none";
 };
+
+// Add form submission handler
+const meetingFormElement = meetingForm.querySelector("form");
+meetingFormElement.onsubmit = function(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    // Get form values if needed
+    const meetingName = document.getElementById("meetingName").value;
+    const meetingPassword = document.getElementById("meetingPassword").value;
+    
+    // Close the meeting form
+    meetingForm.style.display = "none";
+    
+    // Open call.html in the same window
+    window.location.href = "incall/call.html";
+};
