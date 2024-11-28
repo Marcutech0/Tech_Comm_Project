@@ -14,6 +14,10 @@ const newMeetingButton = document.querySelector(".new-meeting");
 const meetingForm = document.getElementById("meetingForm");
 const closeMeetingButton = meetingForm.querySelector(".close-meeting");
 
+// Beginner Mode Toggle
+const beginnerModeToggle = document.getElementById("beginnerModeToggle");
+let isBeginnerMode = true;
+
 // Open video modal
 playVideoButton.onclick = function() {
     videoModal.style.display = "flex";
@@ -80,3 +84,20 @@ meetingFormElement.onsubmit = function(event) {
     // Open call.html in the same window
     window.location.href = "incall/call.html";
 };
+
+beginnerModeToggle.onclick = () => {
+    isBeginnerMode = !isBeginnerMode;
+
+    // Toggle visibility of advanced features
+    document.querySelectorAll(".beginner-hide").forEach(element => {
+        element.style.display = isBeginnerMode ? "none" : "block";
+    });
+
+    // Update button text
+    beginnerModeToggle.textContent = `Beginner Mode: ${isBeginnerMode ? "ON" : "OFF"}`;
+};
+
+// Initialize Beginner Mode
+document.addEventListener("DOMContentLoaded", () => {
+    beginnerModeToggle.onclick(); // Apply initial mode settings
+});
