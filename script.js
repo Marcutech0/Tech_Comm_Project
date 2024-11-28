@@ -101,3 +101,26 @@ beginnerModeToggle.onclick = () => {
 document.addEventListener("DOMContentLoaded", () => {
     beginnerModeToggle.onclick(); // Apply initial mode settings
 });
+
+// Add this new code at the end of your script.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the demo button
+    const demoButton = document.getElementById('demoButton');
+    
+    // Add click event for demo button
+    demoButton?.addEventListener('click', function() {
+        const videoFrame = document.getElementById('videoFrame');
+        videoFrame.src = this.getAttribute('data-video');
+        videoModal.style.display = "flex";
+        videoModal.classList.add("fade-in");
+    });
+
+    // Update the existing playVideoButton click handler
+    const existingPlayButton = document.getElementById('playVideoButton');
+    existingPlayButton?.addEventListener('click', function() {
+        const videoFrame = document.getElementById('videoFrame');
+        videoFrame.src = this.getAttribute('data-video');
+        videoModal.style.display = "flex";
+        videoModal.classList.add("fade-in");
+    });
+});

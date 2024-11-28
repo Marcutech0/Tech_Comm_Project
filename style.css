@@ -23,26 +23,48 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px; /* Adjusted width */
+    width: 400px;
     padding: 15px;
-    background-color: #ff9900;
+    background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-radius: 8px;
-    font-size: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left;
 }
 
+.announcement-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
 
-.announcement button {
-    background: transparent;
+.announcement-text span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.video-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
     border: none;
-    color: #fff;
-    font-size: 20px;
+    border-radius: 5px;
+    padding: 8px 15px;
     cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.video-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.video-btn i {
+    font-size: 0.8rem;
 }
 
 /* Main Content - Moved to Top */
@@ -367,5 +389,35 @@ body {
 
 .mode-toggle button:hover {
     background-color: #555;
+}
+
+/* Add these styles while keeping other styles */
+.video-buttons {
+    display: flex;
+    gap: 8px;  /* Space between buttons */
+    margin-top: 5px;
+}
+
+.video-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.video-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.video-btn i {
+    font-size: 0.8rem;
 }
 
