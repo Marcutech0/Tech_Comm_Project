@@ -1,3 +1,15 @@
+// Add this function at the top of your JavaScript file
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.style.display = 'block';
+    
+    // Remove the notification after animation ends
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 2000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Shepherd tour
     const tour = new Shepherd.Tour({
@@ -216,64 +228,43 @@ document.addEventListener('DOMContentLoaded', () => {
             sidebarItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
 
-            const itemText = item.querySelector('span').textContent;
-            const settingsBody = document.querySelector('.settings-body');
-            const bandwidthContent = document.querySelector('.bandwidth-content');
-            
             // Hide all panels first
-            settingsBody.style.display = 'none';
-            bandwidthContent.style.display = 'none';
+            const allPanels = document.querySelectorAll('.settings-panel, .bandwidth-content, .low-latency-content');
+            allPanels.forEach(panel => panel.style.display = 'none');
 
+            const itemText = item.querySelector('span').textContent;
+            
             // Show appropriate panel
-            if (itemText === 'General') {
-                settingsBody.style.display = 'block';
-            } else if (itemText === 'Bandwidth Control') {
-                bandwidthContent.style.display = 'block';
-            } else if (itemText === 'Low-Latency Frame') {
-                const lowLatencyContent = `
-                    <div class="low-latency-content settings-panel">
-                        <h3>Low-Latency Frame Mode</h3>
-                        <div class="setting-section">
-                            <label class="setting-checkbox-label">
-                                <input type="checkbox" id="freezeFrame">
-                                <span>Enable Frame Freezing</span>
-                            </label>
-                            <small class="setting-description">
-                                Freezing: Instead of dropping frames when bandwidth is low, the system could freeze the video
-                                stream temporarily, showing a clear static image (instead of a pixelated or lagging video) while maintaining stable audio
-                                connection. The frozen frame would hold until the connection improves.
-                            </small>
-                        </div>
-                    </div>`;
-                
-                const settingsContent = document.querySelector('.settings-content');
-                
-                // Remove any existing low latency content first
-                const existingLowLatency = settingsContent.querySelector('.low-latency-content');
-                if (existingLowLatency) {
-                    existingLowLatency.remove();
-                }
-                
-                // Add new content
-                settingsContent.insertAdjacentHTML('beforeend', lowLatencyContent);
-                
-                // Hide other panels and show low latency content
-                settingsBody.style.display = 'none';
-                bandwidthContent.style.display = 'none';
-                document.querySelector('.low-latency-content').style.display = 'block';
-
-                // Add checkbox functionality
-                const freezeFrameCheckbox = document.getElementById('freezeFrame');
-                if (freezeFrameCheckbox) {
-                    freezeFrameCheckbox.addEventListener('change', (e) => {
-                        const videoPlaceholder = document.querySelector('.video-placeholder');
-                        if (e.target.checked) {
-                            videoPlaceholder.classList.add('low-latency-mode');
-                        } else {
-                            videoPlaceholder.classList.remove('low-latency-mode');
-                        }
-                    });
-                }
+            switch(itemText) {
+                case 'General':
+                    document.querySelector('.settings-body').style.display = 'block';
+                    break;
+                case 'Bandwidth Control':
+                    document.querySelector('.bandwidth-content').style.display = 'block';
+                    break;
+                case 'Low-Latency Frame':
+                    // Only create low latency content if it doesn't exist
+                    let lowLatencyPanel = document.querySelector('.low-latency-content');
+                    if (!lowLatencyPanel) {
+                        const lowLatencyContent = `
+                            <div class="low-latency-content settings-panel">
+                                <h3>Low-Latency Frame Mode</h3>
+                                <div class="setting-section">
+                                    <label class="setting-checkbox-label">
+                                        <input type="checkbox" id="freezeFrame">
+                                        <span>Enable Frame Freezing</span>
+                                    </label>
+                                    <small class="setting-description">
+                                        Freezing: Instead of dropping frames when bandwidth is low, the system could freeze the video
+                                        stream temporarily, showing a clear static image (instead of a pixelated or lagging video) while maintaining stable audio
+                                        connection. The frozen frame would hold until the connection improves.
+                                    </small>
+                                </div>
+                            </div>`;
+                        document.querySelector('.settings-content').insertAdjacentHTML('beforeend', lowLatencyContent);
+                    }
+                    document.querySelector('.low-latency-content').style.display = 'block';
+                    break;
             }
         });
     });
@@ -284,4 +275,13 @@ document.addEventListener('DOMContentLoaded', () => {
             settingsModal.style.display = 'none';
         }
     });
+
+    // Find the existing audio-only button click handler and modify it
+    const audioOnlyBtn = document.querySelector('.audio-only-btn');
+    if (audioOnlyBtn) {
+        audioOnlyBtn.addEventListener('click', () => {
+            showNotification('Audio Only Mode');
+            // Add any other audio-only functionality here
+        });
+    }
 });

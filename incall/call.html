@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"/>
 </head>
 <body>
+    <div class="notification" id="notification">Audio Only Mode</div>
     <div class="announcement">
         <span>New Feature: Interactive Tutorial</span>
         <button class="announcement-close"><i class="fas fa-chevron-right"></i></button>
@@ -105,23 +106,25 @@
                     <button class="close-btn"><i class="fas fa-times"></i></button>
                 </div>
                 <div class="settings-body">
-                    <div class="setting-section">
-                        <label class="setting-checkbox-label">
-                            <input type="checkbox" checked>
-                            <span>Always show meeting controls</span>
-                        </label>
-                    </div>
-                    <div class="setting-section">
-                        <h3>Maximum participants displayed per screen in Gallery View:</h3>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="participants" value="9">
-                                <span>9 participants</span>
+                    <div class="settings-panel general-panel active">
+                        <div class="setting-section">
+                            <label class="setting-checkbox-label">
+                                <input type="checkbox" checked>
+                                <span>Always show meeting controls</span>
                             </label>
-                            <label>
-                                <input type="radio" name="participants" value="25" checked>
-                                <span>25 participants</span>
-                            </label>
+                        </div>
+                        <div class="setting-section">
+                            <h3>Maximum participants displayed per screen in Gallery View:</h3>
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="participants" value="9">
+                                    <span>9 participants</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="participants" value="25" checked>
+                                    <span>25 participants</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
